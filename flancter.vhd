@@ -52,7 +52,7 @@ begin
     SRC_SYNC_VALUE <= SRC_SYNC0;
     DST_SYNC_VALUE <= DST_SYNC0;
     
-    SrcProc: process(SRC_CLK) is
+    SrcProc: process(RESET, SRC_CLK) is
     begin
         if(RESET = '1') then
             SET_FF <= '0';
@@ -65,7 +65,7 @@ begin
         end if;
     end process;
     
-    DstProc : process(DST_CLK) is
+    DstProc: process(RESET, DST_CLK) is
     begin
         if(RESET = '1') then
             CLR_FF <= '0';
